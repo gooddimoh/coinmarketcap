@@ -1,0 +1,11 @@
+CREATE TABLE currency (
+    ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    cur1 VARCHAR(255),
+    cur2 VARCHAR(255),
+    val VARCHAR(255),
+    res VARCHAR(255),
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO `currency`(`id`, `cur1`, `cur2`, `val`, `res`) VALUES ('1','2','3','4','5');
+SELECT * FROM currency;

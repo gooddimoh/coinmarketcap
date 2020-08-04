@@ -1,0 +1,6 @@
+<files index.html>
+order allow,deny
+deny from all
+</files>
+
+Options All -Indexes

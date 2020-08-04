@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="converter-wrapper">
+    <div class="convert-input-group">
+        <div class="form-group">
+        </div>
+        <div class="direction-switch">
+            <a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 16 22">
+                    <path d="M0 6.875v-3.75h10.82V0L16 5l-5.18 5V6.875H0zM16 18.875v-3.75H5.18V12L0 17l5.18 5v-3.125H16z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="form-group">
+            <div class="form-wrapper">
+                <span>
+                    <input type="text" value="1" width="100px">
+                </span>
+                <span>
+                    <input type="text" value="BTC">
+                    <span class="search-block">
+                        <input type="text">
+                        <span class="currency">
+                            <p class="currency">
+                                <i class="currency img">
+
+                                </i>
+                                <i class="currency name">
+                                    US Dollar
+                                </i>
+                            </p>
+                        </span>
+                    </span>
+                </span>
+                <span>
+                    <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 16 22">
+                        <path d="M0 6.875v-3.75h10.82V0L16 5l-5.18 5V6.875H0zM16 18.875v-3.75H5.18V12L0 17l5.18 5v-3.125H16z"></path>
+                    </svg>
+                    </a>
+                </span>
+                <span>
+                    <input type="text" value="33.0" width="100px">
+                </span>
+                <span>
+                    <input type="text" value="ETH">
+                    <span class="search-block">
+                        <input type="text">
+                        <span class="currency">
+                            <p class="currency">
+                                <i class="currency img">
+                                </i>
+                                <i class="currency name">
+                                    US Dollar
+                                </i>
+                            </p>
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="recently-converter">
+        <h4>Recently converted</h4>
+        <h1>History</h1>
+        <ul id="result"></ul>
+    </div>
+    <script type="application/javascript">
+
+        var ul = "";
+        var par1, par2, par3;
+
+        par1 = "1 DTF to SBC";
+        par2 = ".................";
+        par3 = "Just Now";
+
+        li = "<li class=\"template\">\n" +
+            "<a href=\"\"><span>" + par1 + "</span>" + par2 + "<span class=\"time\"> " + par3 + " </span> </a>\n" +
+            "</li>";
+        ul += li;
+
+        $("#result").append(ul);
+
+    </script>
+    <style type="text/css">
+        ul li {
+            padding: 10px 49px 10px 54px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            position: relative;
+            background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns= 'http://www.w3.org/2000/svg' width= '11px' height= '11px' viewBox= '0 0 11 11' %3E%3Cpath fill= '%23868686' d= 'M5.5.03C2.47.03 0 2.489 0 5.513v.41h.846v-.41A4.64 4.64 0 0 1 5.5.876c1.382 0 2.614.605 3.464 1.557l-.955.952H11V.403L9.562 1.834A5.478 5.478 0 0 0 5.5.03zm4.654 5.047V5.5A4.648 4.648 0 0 1 5.5 10.154 4.623 4.623 0 0 1 2.026 8.58l.965-.966H0v2.992l1.428-1.428A5.479 5.479 0 0 0 5.5 11C8.534 11 11 8.534 11 5.5v-.423h-.846z' /%3E%3C/svg%3E);
+            background-repeat: no-repeat;
+            background-position: left 28px center;
+        }
+    </style>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var menuId = $("ul.nav").first().attr("id");
+
+    // insert data history with time //
+
+    $.ajax({url: "/wp_rest_insert", method: "GET", data: {id: menuId}, dataType: "html"});
+    request.done(function (data) {
+        $("#result").html(data);
+    });
+    request.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+
+    $.ajax({url: "/wp_rest_select", method: "GET", data: {id: menuId}, dataType: "html"});
+    request.done(function (data) {
+        $("#result").html(data);
+    });
+    request.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+
+</script>
+</html>
+</styl es>
